@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class carmovement : MonoBehaviour
 {
+    
+    carStats car = new carStats();
+
     public Rigidbody2D rb;
     public float length;
     public float speed;
@@ -11,6 +14,7 @@ public class carmovement : MonoBehaviour
     public float maxspeed;
     public float decay;
     public float displayvelocity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +23,8 @@ public class carmovement : MonoBehaviour
         //speed is speed car is currently going
         //accel is how much faster car goes when gas is pressed
         speed = 0f;
-        accel = 0.2f;
-        maxspeed = 10;
+        accel = car.acceleration; //0.2f
+        maxspeed = car.topSpeed; //10
         decay = .05f;
     }
 
