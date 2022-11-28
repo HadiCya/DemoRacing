@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31427414ac61d5441a62aece9648b0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car: {fileID: 1134462026}
   rb: {fileID: 1134462025}
   length: 0
   speed: 0
@@ -208,11 +209,23 @@ MonoBehaviour:
   maxspeed: 0
   decay: 0
   displayvelocity: 0
+  active: 0
 --- !u!50 &1134462025 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5112137987811187147, guid: 0797b91ea0c71c14f947430980952d77, type: 3}
   m_PrefabInstance: {fileID: 415438023}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1134462026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6470598564420901762, guid: 0797b91ea0c71c14f947430980952d77, type: 3}
+  m_PrefabInstance: {fileID: 415438023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134462022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744d767245e708f40bdb19fe2f6dad7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1903117834
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class carmovement : MonoBehaviour
 {
     
-    carStats car = new carStats();
+    public carStats car;
 
     public Rigidbody2D rb;
     public float length;
