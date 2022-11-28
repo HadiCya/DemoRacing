@@ -28,7 +28,13 @@ MonoBehaviour:
   m_UserSelectedRegistryName: 
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
+
+    m_Modified: 0
     m_ErrorMessage: 
+    m_UserModificationsInstanceId: -826
+    m_OriginalInstanceId: -828
+  m_LoadAssets: 0
+
     m_Original:
       m_Id: 
       m_Name: 
@@ -42,3 +48,4 @@ MonoBehaviour:
     m_Scopes:
     - 
     m_SelectedScopeIndex: 0
+
