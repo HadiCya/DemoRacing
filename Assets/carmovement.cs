@@ -14,6 +14,7 @@ public class carmovement : MonoBehaviour
     public float maxspeed;
     public float decay;
     public float displayvelocity;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class carmovement : MonoBehaviour
         accel = car.acceleration; //0.2f
         maxspeed = car.topSpeed; //10
         decay = .05f;
+        active = true;
     }
 
     // Update is called once per frame
@@ -72,6 +74,11 @@ public class carmovement : MonoBehaviour
             rb.rotation -= 3f;
         }
 
+        if (Input.GetKey("r")) //Temporary destruction testing remove later
+        {
+            carDestruct();
+        }
+
         //make car go in direction and speed determined by controls this frame
         rb.velocity = transform.up * speed;
 
@@ -98,6 +105,16 @@ public class carmovement : MonoBehaviour
         //rb.velocity = Vector2.ClampMagnitude(transform.up * speed, 15); 
 
         Debug.Log(speed);
+    }
+
+    void carDestruct()
+    {
+        active = false;
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f);
+        speed = 0;
+        maxspeed = 0;
     }
 }
 
