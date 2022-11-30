@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1806029865018402589}
   - component: {fileID: 2127946754468866203}
   - component: {fileID: -9168715601245595647}
+  - component: {fileID: 7185543126225950323}
+  - component: {fileID: -7748930512579789122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -119,7 +121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3180667006118230497}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b98aade95f95941b48808da81e0e66, type: 3}
   m_Name: 
@@ -172,7 +174,7 @@ MonoBehaviour:
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     InterpolateOption: 1
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
@@ -181,6 +183,49 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &7185543126225950323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180667006118230497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31427414ac61d5441a62aece9648b0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: -7748930512579789122}
+  rb: {fileID: 2127946754468866203}
+  length: 0
+  speed: 0
+  accel: 0
+  maxspeed: 0
+  decay: 0
+  displayvelocity: 0
+  active: 0
+  view: {fileID: 0}
+--- !u!114 &-7748930512579789122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180667006118230497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744d767245e708f40bdb19fe2f6dad7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topSpeed: 10
+  acceleration: 0.2
+  health: 20
+  defense: 0
+  wheelFriction: 0
+  maxAmmo: 0
+  curAmmo: 0
+  invinsible: 0
+  stalled: 0
 --- !u!1 &5630157725929940215
 GameObject:
   m_ObjectHideFlags: 0
