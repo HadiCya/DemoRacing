@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
+    public string sceneName;
     // Start is called before the first frame update
     private void Start()
     {
@@ -24,6 +25,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("TestScene");
+        PhotonNetwork.LoadLevel(sceneName);
     }
 }
