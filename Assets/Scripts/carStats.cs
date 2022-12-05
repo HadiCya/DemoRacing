@@ -8,6 +8,7 @@ public class carStats : MonoBehaviour
     public float topSpeed;      //maximum Speed the car can go
     public float acceleration;  //how fast the car's speed increases
     public float health;        //how much health the car has left
+    public float decay;         //how fast the car slows down
 
 //just hidden till we need them
     [HideInInspector] public float defense;       //defense car has to protect it from bullets

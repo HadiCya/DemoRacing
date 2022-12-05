@@ -23,16 +23,20 @@ public class carmovement : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
-        gameObject.GetComponentInChildren<TextMeshPro>().text = view.Owner.NickName;
+        //this line probably doesnt work cause its not connected online, for now im removing it for testing purposes when it needs to be online it can be readded
+       // gameObject.GetComponentInChildren<TextMeshPro>().text = view.Owner.NickName;
         rb = this.transform.GetComponent<Rigidbody2D>();
 
+
+        car = rb.GetComponent<carStats>();
         //speed is speed car is currently going
         //accel is how much faster car goes when gas is pressed
         speed = 0f;
         accel = car.acceleration; //0.2f
         maxspeed = car.topSpeed; //10
-        decay = .05f;
+        decay = car.decay;//.05f
         active = true;
+        
     }
 
     // Update is called once per frame
@@ -88,6 +92,7 @@ public class carmovement : MonoBehaviour
 
             //make car go in direction and speed determined by controls this frame
             rb.velocity = transform.up * speed;
+            //need to have the angular friction at like 10000 because if you dont when you bump something itll just keep spinning for almost ever
 
             if (!Input.GetKey("w") && !Input.GetKey("s"))
             {
@@ -107,23 +112,66 @@ public class carmovement : MonoBehaviour
             }
 
 
+        
+
             displayvelocity = rb.velocity.magnitude;
             //this clamps the movement correctly however the float speed itself also needs to be clamped
             //rb.velocity = Vector2.ClampMagnitude(transform.up * speed, 15); 
 
-            Debug.Log(speed);
+            //Debug.Log(car.acceleration);
         }
     }
 
-    void carDestruct()
+   public void  carDestruct()
     {
         active = false;
-        GetComponent<Rigidbody2D>().isKinematic = false;
+        
         GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f);
+       
+        StartCoroutine(waiter());
         speed = 0;
         maxspeed = 0;
+        
     }
+
+   public void  carRespawn()
+    {
+        active = true;
+        
+        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
+        maxspeed = car.topSpeed;
+    }
+
+    void thetimerstarter()
+    {
+        StartCoroutine(waiter());
+    }
+
+    IEnumerator waiter()
+    {
+        int count = 3;
+        float time = .2f;
+        while(count > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f);
+
+            yield return new WaitForSeconds(time);
+
+            GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
+
+            yield return new WaitForSeconds(time);
+
+            count--;
+        }
+
+        carRespawn();
+
+    }
+
+    
+
+
 }
 
 
