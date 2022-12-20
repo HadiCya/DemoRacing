@@ -221,6 +221,7 @@ MonoBehaviour:
   topSpeed: 10
   acceleration: 0.2
   health: 20
+  decay: 0
   defense: 0
   wheelFriction: 0
   maxAmmo: 0
