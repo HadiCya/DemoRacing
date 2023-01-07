@@ -54,4 +54,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 104c30a7f847ddb4aa07414927bfe88b
+  - enabled: 1
+    path: Assets/Scenes/Shooting.unity
+    guid: 2ffbad01a609bc940aef6653969de1b3
   m_configObjects: {}
